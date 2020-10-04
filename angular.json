@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AdminDA5"
+    }
+  },
+  "defaultProject": "AdminDA5",
+  "cli": {
+    "analytics": "a175201b-83fa-4f41-a055-efbac029b97c"
+  }
 }
