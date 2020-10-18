@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+
 
 @Component({
   selector: 'app-hoc-lai',

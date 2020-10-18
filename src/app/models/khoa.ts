@@ -24,3 +24,35 @@ export interface SinhVien
   cmnd:string;
   maTK:string
 }
+
+export interface BoMon
+{
+  maBoMon:string;
+  tenBoMon:string;
+  maKhoa:string
+
+}
+export interface HeDaoTao
+{
+  maHeDaoTao:string;
+  tenHeDaoTao:string
+}
+ export interface Lop
+{
+  maLop:string;
+  tenLop:string;
+  maHeDaoTao:string;
+  maKhoa:string;
+  maGiaoVien:string;
+  maHocKy:string;
+
+}
+
+export interface HocKy
+{
+  maHocKy:string;
+  tenHocKy:string;
+  namHoc:string;
+  heSoHk:string
+}
+
