@@ -1,0 +1,23 @@
+
+<div class="p-fluid p-grid row">
+  <div class="p-field p-col-12 p-md-6">
+
+        <div class="form-group">
+          <label>Mã Khoa</label>
+          <input type="text" class="form-control" placeholder="Nhập mã khoa...." [(ngModel)]="maKhoa">
+        </div>
+
+  </div>
+  <div class="p-field p-col-12 p-md-6">
+    <div class="form-group">
+      <label>Tên Khoa</label>
+      <input type="text" class="form-control" placeholder="Nhập tên khoa...." [(ngModel)]="tenKhoa">
+    </div>
+</div>
+</div>
+<button (click)="addKhoa()" *ngIf="dep.maKhoa==0" class="btn btn-primary">
+  Thêm
+</button>
+<button (click)="capnhatkhoa()" *ngIf="dep.maKhoa!=0" class="btn btn-primary">
+  Cập Nhật
+</button>

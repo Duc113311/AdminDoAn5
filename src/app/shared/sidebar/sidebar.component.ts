@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+// table
 
+//Hết table
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
+
+
 })
 export class SidebarComponent implements OnInit {
 
@@ -16,6 +20,16 @@ export class SidebarComponent implements OnInit {
         {name:'List Học Lại',url:'hoc-lai/hoc-lai',icon:'circle'}
       ]}
     ],
+  },
+  {
+    name:'Thông Tin',url:'',childs:[
+      {name:'Quản Lý Sinh Viên',url:'',icon:'envelope',childs:[
+        {name:'Danh Sách Sinh Viên', url:'thongtin/sinhvien',icon:'circle'}
+      ]},
+      {name:'Quản Lý Giáo Viên',url:'',icon:'envelope',childs:[
+        {name:'Danh Sách Giáo Viên', url:'thongtin/giaovien',icon:'circle'}
+      ]},
+    ]
   }
   ]
   constructor() { }

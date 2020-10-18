@@ -4,15 +4,17 @@ import { SinhvienComponent } from './sinhvien/sinhvien.component';
 import { GiaovienComponent } from './giaovien/giaovien.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { Component } from '@fullcalendar/core';
+
+import { AppModule } from 'src/app/app.module';
+//
 
 
 
 @NgModule({
   declarations: [SinhvienComponent, GiaovienComponent],
   imports: [
-    CommonModule,
     SharedModule,
+    CommonModule,
     RouterModule.forChild([
       {
         path:'giaovien',
@@ -24,5 +26,6 @@ import { Component } from '@fullcalendar/core';
       },
     ]),
   ]
+
 })
 export class ThongtinModule { }

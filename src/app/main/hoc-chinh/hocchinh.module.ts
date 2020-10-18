@@ -11,13 +11,16 @@ import { NganhDTComponent } from './nganh-dt/nganh-dt.component';
 import { DiemComponent } from './diem/diem.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { AddUpdateComponent } from './khoa/add-update/add-update.component';
+
 
 
 
 @NgModule({
-  declarations: [KhoaComponent, LopComponent, HeDaoTaoComponent, HocKyComponent, GiangDayComponent, MonHocComponent, BoMonComponent, NganhDTComponent, DiemComponent],
+  declarations: [KhoaComponent, LopComponent, HeDaoTaoComponent, HocKyComponent, GiangDayComponent, MonHocComponent, BoMonComponent, NganhDTComponent, DiemComponent, AddUpdateComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path:'bo-mon',
