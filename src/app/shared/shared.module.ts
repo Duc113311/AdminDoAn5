@@ -10,6 +10,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -26,7 +29,10 @@ import { ToastModule } from 'primeng/toast';
     InputNumberModule,
     ConfirmDialogModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    MultiSelectModule,
+    CalendarModule,
+    DropdownModule
   ],
   exports:[
 
@@ -40,7 +46,10 @@ import { ToastModule } from 'primeng/toast';
     InputNumberModule,
     ConfirmDialogModule,
     FormsModule,
-    ToastModule
+    ToastModule,
+    MultiSelectModule,
+    CalendarModule,
+    DropdownModule
 
 
   ]

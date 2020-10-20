@@ -5,6 +5,7 @@ import { DKHocLaiComponent } from './dkhoc-lai/dkhoc-lai.component';
 import { HocLaiComponent } from './hoc-lai/hoc-lai.component';
 import { RouterModule } from '@angular/router';
 import { BoMonComponent } from '../hoc-chinh/bo-mon/bo-mon.component';
+import { AppserviceService } from 'src/app/get_api/appservice.service';
 
 
 
@@ -26,6 +27,7 @@ import { BoMonComponent } from '../hoc-chinh/bo-mon/bo-mon.component';
         component:DKHocLaiComponent,
       }
     ]),
-  ]
+  ],
+  providers:[AppserviceService]
 })
 export class HocLaiModule { }

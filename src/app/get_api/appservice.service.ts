@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Khoa, MonHoc, SinhVien} from 'src/app/models/khoa';
+import {HeDaoTao, Khoa, MonHoc, SinhVien} from 'src/app/models/khoa';
 import { HttpHeaders } from '@angular/common/http';
 
 // const httpOptions = {
@@ -15,8 +15,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class AppserviceService {
   readonly APIURL="https://localhost:44306/api";
-
-
+  formData: MonHoc;
   constructor(private http:HttpClient) { }
   //Khoa
   getKhoaList():Observable<Khoa[]>
@@ -41,9 +40,23 @@ export class AppserviceService {
 
     return this.http.get<MonHoc[]>(this.APIURL+ '/MonHocs');
   }
+  addMonhoc(formData:MonHoc)
+  {
+    return this.http.post<MonHoc[]>(this.APIURL+ '/MonHocs',formData);
+  }
+  updateMonHoc(val:any) : Observable<any>
+  {
+    return this.http.put<any>(this.APIURL+'/MonHocs/'+val.maMonHoc, val);
+  }
+  deleteMonHoc(val:any)
+  {
+    return this.http.delete(this.APIURL+'/MonHocs/'+val);
+  }
   //Sinh Vien
   getSinhvienList():Observable<SinhVien[]>
   {
     return this.http.get<SinhVien[]>(this.APIURL+ '/SinhViens');
   }
+
+
 }

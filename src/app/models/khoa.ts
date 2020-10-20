@@ -35,7 +35,7 @@ export interface BoMon
 export interface HeDaoTao
 {
   maHeDaoTao:string;
-  tenHeDaoTao:string
+  tenHeDaoTao:string;
 }
  export interface Lop
 {
