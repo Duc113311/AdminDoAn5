@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 //
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ProductService } from './productservice';
@@ -33,11 +33,18 @@ import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import {AppserviceService} from 'src/app/get_api/appservice.service';
+import { LoginComponent } from './login/login.component';
+import { ErrorInterceptor } from './lib/error.interceptor';
+import { JwtInterceptor } from './lib/jwt.interceptor';
+import { QldsvService } from './get_api/qldsv.service';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+
 
 
   ],
@@ -64,9 +71,15 @@ import {AppserviceService} from 'src/app/get_api/appservice.service';
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   bootstrap:  [ AppComponent ],
-  providers: [ProductService, MessageService, ConfirmationService,AppserviceService]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ProductService, MessageService, ConfirmationService,AppserviceService,QldsvService
+
+  ]
 })
 export class AppModule { }

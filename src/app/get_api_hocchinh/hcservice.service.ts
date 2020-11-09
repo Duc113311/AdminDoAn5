@@ -7,6 +7,7 @@ import {HeDaoTao} from 'src/app/models/khoa';
 })
 export class HcserviceService {
   readonly APIURL="https://localhost:44306/api";
+  readonly APIURLsearch="https://localhost:44306/api/HeDaoTaos/search/";
   constructor(private http:HttpClient) { }
   status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
@@ -61,6 +62,7 @@ export class HcserviceService {
     debugger
     return this.http.delete(this.APIURL+'/HeDaoTaos/'+val.maHeDaoTao,val);
   }
+
 
   getProductsSmall() {
       return this.http.get<any>('assets/products-small.json')

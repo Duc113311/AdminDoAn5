@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {HeDaoTao, Khoa, MonHoc, SinhVien} from 'src/app/models/khoa';
+import {Diem, HeDaoTao, Khoa, Lop, MonHoc, SinhVien} from 'src/app/models/khoa';
 import { HttpHeaders } from '@angular/common/http';
-
+import { taiKhoan } from 'src/app/models/taikhoan';
+import {environment} from 'src/environments/environment';
 // const httpOptions = {
 //   headers: new HttpHeaders({
 //     'Content-Type':  'application/json'
@@ -15,6 +16,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class AppserviceService {
   readonly APIURL="https://localhost:44306/api";
+  readonly APISVtruot="https://localhost:44306/api/Diems/"
   formData: MonHoc;
   constructor(private http:HttpClient) { }
   //Khoa
@@ -58,5 +60,29 @@ export class AppserviceService {
     return this.http.get<SinhVien[]>(this.APIURL+ '/SinhViens');
   }
 
-
+  getAll() {
+    return this.http.get<taiKhoan[]>(`${environment.APIURL}/users`);
+  }
+  getListLop():Observable<Lop[]>
+  {
+    return this.http.get<Lop[]>(this.APIURL+ '/Lops');
+  }
+  getListSV():Observable<SinhVien[]>
+  {
+    return this.http.get<SinhVien[]>(this.APIURL+ '/SinhViens');
+  }
+  // getdiemsinhvientruot(selectID:any):Observable<Diem[]>
+  // {
+  //   return this.http.get(this.APISVtruot+'getdiemsv/'+selectID.maSv,selectID);
+  // }
+  // getDiemSV():Observable<Diem[]>
+  // {
+  //   return this.http.get<Diem[]>(this.APIURL+ '/Diems');
+  // }
+  getdiemsinhvientruot(seletcID:any):Observable<any>
+  {
+    debugger
+    let bien=new HttpParams().set('getdiemsv/',seletcID);
+    return this.http.get(this.APISVtruot,{params:bien});
+  }
 }

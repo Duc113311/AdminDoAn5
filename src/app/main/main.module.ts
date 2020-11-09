@@ -8,6 +8,8 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { RouterModule,Routes } from '@angular/router';
 
+import { Role } from '../models/role';
+
 export const mainRouter: Routes=[
   {
     path: '',component:MainComponent,
@@ -16,7 +18,8 @@ export const mainRouter: Routes=[
         path:'',component:DashboardComponent
       },
       {
-        path:'thongtin',loadChildren:() =>import('./thongtin/thongtin.module').then(m=>m.ThongtinModule)
+        path:'thongtin',loadChildren:() =>import('./thongtin/thongtin.module').then(m=>m.ThongtinModule),
+        data: { roles: [Role.Admin] },
       },
       {
         path:'hoc-chinh',loadChildren:()=>import('./hoc-chinh/hocchinh.module').then(m=>m.HocChinhModule)

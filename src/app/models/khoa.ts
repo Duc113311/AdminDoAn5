@@ -1,6 +1,5 @@
 export interface Khoa {
-  name: string;
-  id: any;
+
   maKhoa?:number;
   tenKhoa?:string
 }
@@ -14,15 +13,14 @@ export interface MonHoc {
 export interface SinhVien
 {
   maSv:string;
-  maLop:string;
+  tenLop:string;
   hoVaTen:string;
   ngaySinh:Date;
   sodienthoai:string;
   diaChi:string;
   email:string;
   gioTinh:string;
-  cmnd:string;
-  maTK:string
+  cmnd:string
 }
 
 export interface BoMon
@@ -39,12 +37,11 @@ export interface HeDaoTao
 }
  export interface Lop
 {
-  maLop:string;
+  maLop:number;
   tenLop:string;
-  maHeDaoTao:string;
-  maKhoa:string;
-  maGiaoVien:string;
-  maHocKy:string;
+  maHeDaoTao:number;
+  maKhoa:number;
+  maHocKy:number;
 
 }
 
@@ -54,5 +51,20 @@ export interface HocKy
   tenHocKy:string;
   namHoc:string;
   heSoHk:string
+}
+export interface Diem
+{
+  maDiem:number;
+       tenKhoa: string;
+       tenHocKy:string;
+       tenHeDaoTao: string;
+       maSv: number;
+       hoVaTen:string;
+       tenMonHoc:string;
+       tenLop:string;
+       diemChuyenCan:number;
+       diemKetThuc:number;
+       diemThucHanh:number;
+       diemTongKet:number
 }
 

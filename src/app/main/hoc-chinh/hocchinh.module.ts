@@ -12,12 +12,13 @@ import { DiemComponent } from './diem/diem.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { AddUpdateComponent } from './khoa/add-update/add-update.component';
+import { SvtruotComponent } from './svtruot/svtruot.component';
 
 
 
 
 @NgModule({
-  declarations: [KhoaComponent, LopComponent, HeDaoTaoComponent, HocKyComponent, GiangDayComponent, MonHocComponent, BoMonComponent, NganhDTComponent, DiemComponent, AddUpdateComponent],
+  declarations: [KhoaComponent, LopComponent, HeDaoTaoComponent, HocKyComponent, GiangDayComponent, MonHocComponent, BoMonComponent, NganhDTComponent, DiemComponent, AddUpdateComponent, SvtruotComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -57,6 +58,10 @@ import { AddUpdateComponent } from './khoa/add-update/add-update.component';
       {
         path:'nganh-dt',
         component:NganhDTComponent,
+      },
+      {
+        path:'sv_truot',
+        component:SvtruotComponent,
       },
 
     ]),

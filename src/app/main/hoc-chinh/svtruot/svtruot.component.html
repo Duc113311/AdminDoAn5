@@ -1,0 +1,62 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark">Danh sách sinh viên Trượt</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard v1</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="form-group col-md-3">
+        <label>Custom Select</label>
+        <select class="custom-select" [(ngModel)]='Sisosv' (ngModelChange)='oneDiemSV($event)'>
+          <option *ngFor='let item of lstDiem' [value]='item.maDiem'>{{item.maSv}}</option>
+        </select>
+      </div> -->
+      <!-- <div class="form-group col-md-3">
+        <label>Custom Select</label>
+        <select class="custom-select">
+          <option *ngFor='let item of lstLop' [value]='item.maLop'>{{item.tenLop}}</option>
+        </select>
+      </div> -->
+      <div class="form-group col-md-3">
+        <label>Custom Select</label>
+        <select class="custom-select" [(ngModel)]='Sisosv' (ngModelChange)='oneDiemSV($event)'>
+          <option *ngFor='let item of lstSV' [value]='item.maSv'>{{item.hoVaTen}}</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      MSV:{{Sisosv}}
+    </div>
+
+
+  </div>
+</section>
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Masv</th>
+      <th>HoTen</th>
+      <th>Môn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of lstDiem">
+      <td scope="row">{{item.maSv}}</td>
+      <td>{{item.hoVaTen}}</td>
+      <td>{{item.tenMonHoc}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
