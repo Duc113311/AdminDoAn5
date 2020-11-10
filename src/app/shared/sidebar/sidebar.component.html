@@ -25,7 +25,7 @@
              with font-awesome or any other icon font library -->
 
         <li class="nav-item">
-          <a href="pages/widgets.html" class="nav-link">
+          <a routerLink="" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Bảng điều khiển
@@ -33,7 +33,66 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a routerLink="tracuutt" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Tra Cứu Điểm-SV
+            </p>
+          </a>
+        </li>
+           <!-- sssssssssssssssss -->
+           <ng-container *ngFor="let mn of menus">
+            <li class="nav-header">{{mn.name}}</li>
+                <ng-container *ngFor="let m of mn.childs">
+
+                 <li class="nav-item has-treeview">
+              <a routerLink="{{m.url}}" class="nav-link">
+                <i class="nav-icon far fa-{{m.icon}}"></i>
+                <p>
+                 {{m.name}}
+                  <i *ngIf="m.childs" class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <ng-container *ngFor="let n of m.childs">
+                <li class="nav-item">
+                  <a routerLink="{{n.url}}" class="nav-link">
+                    <i class="far fa-circle nav-{{n.icon}}"></i>&nbsp;
+                    <p>{{n.name}}</p>
+                  </a>
+                </li>
+              </ng-container>
+              </ul>
+                 </li>
+               </ng-container>
+            </ng-container>
+
         <li class="nav-header">Học Chính</li>
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-plus-square"></i>
+            <p>
+              Quản Lý Điểm
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="hoc-chinh/diem" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Điểm</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="hoc-chinh/sv_truot" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>SV Trượt Theo Lớp</p>
+              </a>
+            </li>
+
+          </ul>
+        </li>
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
@@ -179,57 +238,8 @@
 
           </ul>
         </li>
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-plus-square"></i>
-            <p>
-              Quản Lý Điểm
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a routerLink="hoc-chinh/diem" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>All Điểm</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="hoc-chinh/sv_truot" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>SV Trượt Theo Lớp</p>
-              </a>
-            </li>
 
-          </ul>
-        </li>
 
-        <!-- sssssssssssssssss -->
-        <ng-container *ngFor="let mn of menus">
-        <li class="nav-header">{{mn.name}}</li>
-            <ng-container *ngFor="let m of mn.childs">
-
-             <li class="nav-item has-treeview">
-          <a routerLink="{{m.url}}" class="nav-link">
-            <i class="nav-icon far fa-{{m.icon}}"></i>
-            <p>
-             {{m.name}}
-              <i *ngIf="m.childs" class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <ng-container *ngFor="let n of m.childs">
-            <li class="nav-item">
-              <a routerLink="{{n.url}}" class="nav-link">
-                <i class="far fa-circle nav-{{n.icon}}"></i>&nbsp;
-                <p>{{n.name}}</p>
-              </a>
-            </li>
-          </ng-container>
-          </ul>
-             </li>
-           </ng-container>
-        </ng-container>
 
 
 

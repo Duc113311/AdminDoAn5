@@ -9,11 +9,15 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { RouterModule,Routes } from '@angular/router';
 
 import { Role } from '../models/role';
+import { TracuuComponent } from './tracuu/tracuu.component';
 
 export const mainRouter: Routes=[
   {
     path: '',component:MainComponent,
     children: [
+      {
+        path:'tracuutt',component:TracuuComponent
+      },
       {
         path:'',component:DashboardComponent
       },
@@ -38,7 +42,8 @@ export const mainRouter: Routes=[
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    MainComponent
+    MainComponent,
+    TracuuComponent
   ],
   imports: [
     CommonModule,

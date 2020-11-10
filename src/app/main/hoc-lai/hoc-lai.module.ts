@@ -6,11 +6,12 @@ import { HocLaiComponent } from './hoc-lai/hoc-lai.component';
 import { RouterModule } from '@angular/router';
 import { BoMonComponent } from '../hoc-chinh/bo-mon/bo-mon.component';
 import { AppserviceService } from 'src/app/get_api/appservice.service';
+import { KetxuatComponent } from './ketxuat/ketxuat.component';
 
 
 
 @NgModule({
-  declarations: [LopHocLaiComponent, DKHocLaiComponent, HocLaiComponent],
+  declarations: [LopHocLaiComponent, DKHocLaiComponent, HocLaiComponent, KetxuatComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
@@ -25,6 +26,10 @@ import { AppserviceService } from 'src/app/get_api/appservice.service';
       {
         path:'dkhoc-lai',
         component:DKHocLaiComponent,
+      },
+      {
+        path:'ketxuat',
+        component:KetxuatComponent,
       }
     ]),
   ],

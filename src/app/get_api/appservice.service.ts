@@ -85,4 +85,5 @@ export class AppserviceService {
     let bien=new HttpParams().set('getdiemsv/',seletcID);
     return this.http.get(this.APISVtruot,{params:bien});
   }
+
 }
