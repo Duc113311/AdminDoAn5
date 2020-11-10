@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Diem, HeDaoTao, Khoa, Lop, MonHoc, SinhVien} from 'src/app/models/khoa';
+import {Diem, HeDaoTao, Khoa, Lop, MonHoc, MonHocTruot, SinhVien} from 'src/app/models/khoa';
 import { HttpHeaders } from '@angular/common/http';
 import { taiKhoan } from 'src/app/models/taikhoan';
 import {environment} from 'src/environments/environment';
@@ -16,7 +16,8 @@ import {environment} from 'src/environments/environment';
 })
 export class AppserviceService {
   readonly APIURL="https://localhost:44306/api";
-  readonly APISVtruot="https://localhost:44306/api/Diems/"
+  readonly APISVtruot="https://localhost:44306/api/Diems/";
+  // readonly apimonsvtruot="https://localhost:44306/api/Diems/laymonhoc/";
   formData: MonHoc;
   constructor(private http:HttpClient) { }
   //Khoa
@@ -85,5 +86,15 @@ export class AppserviceService {
     let bien=new HttpParams().set('getdiemsv/',seletcID);
     return this.http.get(this.APISVtruot,{params:bien});
   }
+
+  // getmonhocsvtruot(idmon:number,tenkhoa:string,tenlop:string):Observable<MonHocTruot[]>
+  // {
+  //   const url=`${this.apimonsvtruot}/${idmon}/${tenkhoa}/${tenlop}`;
+  //   console.log(url);
+  //   // return this.http.get<MonHocTruot[]>(this.apimonsvtruot+`${tenkhoa}/${tenlop}`);
+  //   return this.http.get<MonHocTruot[]>(url)
+
+
+  // }
 
 }

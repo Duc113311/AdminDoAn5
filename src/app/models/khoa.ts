@@ -5,14 +5,14 @@ export interface Khoa {
 }
 
 export interface MonHoc {
-  maMonHoc?:string;
+  maMonHoc?:number;
   tenMonHoc?:string;
   soTinChi:string
 }
 
 export interface SinhVien
 {
-  maSv:string;
+  maSv:number;
   tenLop:string;
   hoVaTen:string;
   ngaySinh:Date;
@@ -68,3 +68,12 @@ export interface Diem
        diemTongKet:number
 }
 
+export interface MonHocTruot
+{
+  tenLop:string;
+  maSv:number;
+  hoVaTen:string;
+  diemKetThuc:number;
+  maMonHoc:number,
+  tenKhoa:string
+}

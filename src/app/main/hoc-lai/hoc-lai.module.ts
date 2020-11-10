@@ -4,9 +4,9 @@ import { LopHocLaiComponent } from './lop-hoc-lai/lop-hoc-lai.component';
 import { DKHocLaiComponent } from './dkhoc-lai/dkhoc-lai.component';
 import { HocLaiComponent } from './hoc-lai/hoc-lai.component';
 import { RouterModule } from '@angular/router';
-import { BoMonComponent } from '../hoc-chinh/bo-mon/bo-mon.component';
 import { AppserviceService } from 'src/app/get_api/appservice.service';
 import { KetxuatComponent } from './ketxuat/ketxuat.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -14,6 +14,7 @@ import { KetxuatComponent } from './ketxuat/ketxuat.component';
   declarations: [LopHocLaiComponent, DKHocLaiComponent, HocLaiComponent, KetxuatComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path:'hoc-lai',

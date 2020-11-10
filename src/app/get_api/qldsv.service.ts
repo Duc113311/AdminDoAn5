@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Diem, Khoa } from '../models/khoa';
+import { Diem, Khoa, MonHocTruot } from '../models/khoa';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class QldsvService {
   readonly APIURL="https://localhost:44306/api/Diems";
   readonly APIURL_getsv:"https://localhost:44306/api/Diems/getdiemsv/";
   readonly APIURL_getkhoa:"https://localhost:44306/api/Khoas";
+  readonly apimonsvtruot="https://localhost:44306/api/Diems/laymonhoc/";
   constructor(private http:HttpClient) { }
   status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
@@ -58,6 +59,17 @@ export class QldsvService {
   {
     return this.http.get<Diem[]>(this.APIURL_getsv);
   }
+  getmonhocsvtruot(idmon:number,tenkhoa:string,tenlop:string):Observable<MonHocTruot[]>
+  {
+    debugger;
+    const url=`${this.apimonsvtruot}${idmon}/${tenkhoa}/${tenlop}`;
+    console.log(url);
+    // return this.http.get<MonHocTruot[]>(this.apimonsvtruot+`${tenkhoa}/${tenlop}`);
+    return this.http.get<MonHocTruot[]>(url)
+
+
+  }
+
   // getAllKhoa():Observable<any>
   // {
   //   return this.http.get(this.APIURL_getkhoa);

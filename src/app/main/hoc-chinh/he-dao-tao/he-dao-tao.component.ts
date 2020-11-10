@@ -81,34 +81,5 @@ export class HeDaoTaoComponent implements OnInit {
         this.products=data;
       });
   }
-  saveProduct() {
-      this.submitted = true;
-      debugger
-      if (this.product.tenHeDaoTao.trim()) {
-        debugger
-          if (this.product.maHeDaoTao) {
-             this.productService.updatehdaotao(this.product).subscribe(data=>
-              {
 
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-                this.getAll();
-              });
-          }
-          else {
-             this.productService.addHeDaoTao(this.product).subscribe(data=>
-              {
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
-                this.getAll();
-              });
-          }
-
-          this.products = [...this.products];
-          this.productDialog = false;
-          this.product = {
-            maHeDaoTao:'',
-            tenHeDaoTao:''
-          };
-
-      }
-    }
   }
