@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Diem, HeDaoTao, Khoa, Lop, MonHoc, MonHocTruot, SinhVien} from 'src/app/models/khoa';
+import {Diem, HeDaoTao, HocKy, Khoa, Lop, MonHoc, MonHocTruot, SinhVien} from 'src/app/models/khoa';
 import { HttpHeaders } from '@angular/common/http';
 import { taiKhoan } from 'src/app/models/taikhoan';
 import {environment} from 'src/environments/environment';
@@ -71,6 +71,10 @@ export class AppserviceService {
   getListSV():Observable<SinhVien[]>
   {
     return this.http.get<SinhVien[]>(this.APIURL+ '/SinhViens');
+  }
+  getHocKyList():Observable<HocKy[]>
+  {
+    return this.http.get<HocKy[]>(this.APIURL+ '/HocKies');
   }
   // getdiemsinhvientruot(selectID:any):Observable<Diem[]>
   // {

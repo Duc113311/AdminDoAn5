@@ -5,6 +5,7 @@ export class taiKhoan {
   hoten: string;
   tenDangNhap: string;
   matKhau: string;
+
   role: Role;
   token?: string;
 }

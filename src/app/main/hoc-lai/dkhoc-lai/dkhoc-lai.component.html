@@ -20,27 +20,27 @@
         <div class="col-md-4">
           <div class="form-group">
             <label class="col-form-label" for="inputSuccess"><i class="fas fa-check"></i> Nhập Khoa</label>
-            <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
+            <input type="text" class="form-control is-valid"  placeholder="Enter ..." #tenKhoa>
           </div>
 
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label class="col-form-label" for="inputSuccess"><i class="fas fa-check"></i> Nhập Lớp</label>
-            <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
+            <input type="text" class="form-control is-valid"  placeholder="Enter ..." #tenLop>
           </div>
 
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label class="col-form-label" for="inputSuccess"><i class="fas fa-check"></i> Nhập Mã Sinh Viên</label>
-            <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
+            <input type="text" class="form-control is-valid"  placeholder="Enter ..." #maSv>
           </div>
 
         </div>
     </div>
     <div>
-      <button type="button" class="btn btn-block btn-warning">TRA CỨU</button>
+      <button type="button" (click)='onclick(tenKhoa.value,tenLop.value,maSv.value)' class="btn btn-block btn-warning">TRA CỨU</button>
     </div>
     <div class="card">
       <div class="card-header">
@@ -72,48 +72,37 @@
           <tr role="row">
             <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Tên Môn Học</th>
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Số Tín Chỉ</th>
-            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Điểm Kết Thúc</th>
-            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Trạng Thái</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Họ Và Tên</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Điểm Kết Thúc</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Pass/Fales</th>
             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Nộp tiền</th>
+
           </tr>
           </thead>
           <tbody>
-            <tr role="row" class="odd">
-              <td class="sorting_1" tabindex="0">KHTML</td>
-              <td>Konqureror 3.5</td>
-              <td>KDE 3.5</td>
-              <td>
+            <tr role="row" class="odd" *ngFor="let item of dkhoklai">
+
+              <td class="sorting_1" tabindex="0">{{item.tenMonHoc}}</td>
+              <td>{{item.soTinChi}}</td>
+              <td>{{item.hoVaTen}}</td>
+              <td>{{item.diemKetThuc}}</td>
+              <td *ngIf="item.trangThaiHocLai==1">
+                <button type="button" class="btn btn-danger" style="width: 50%;">Trượt</button>
+              </td>
+              <td *ngIf="item.trangThaiHocLai!=1">
                 <button type="button" class="btn btn-warning">Không Trượt</button>
               </td>
               <td>
                 <div class="form-group" >
-
                   <select class="form-control" style="width: 50%;">
-                    <option>Đã Đóng Tiền</option>
-                    <option>Chưa Đóng Tiền</option>
+                    <option *ngIf="item.trangThaiNopTien==1">Đã nộp tiền</option>
+                    <option *ngIf="item.trangThaiNopTien!=1">Chưa Đóng Tiền</option>
 
                   </select>
                 </div>
               </td>
             </tr>
-            <tr role="row" class="odd">
-              <td class="sorting_1" tabindex="0">KHTML</td>
-              <td>Konqureror 3.5</td>
-              <td>KDE 3.5</td>
-              <td>
-                <button type="button" class="btn btn-danger" style="width: 50%;">Trượt</button>
-              </td>
-              <td>
-                <div class="form-group" >
 
-                  <select class="form-control" style="width: 50%;">
-                    <option>Đã Đóng Tiền</option>
-                    <option>Chưa Đóng Tiền</option>
-
-                  </select>
-                </div>
-              </td>
-            </tr>
           </tbody>
 
         </table>

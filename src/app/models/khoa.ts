@@ -13,10 +13,11 @@ export interface MonHoc {
 export interface SinhVien
 {
   maSv:number;
+  maLop:number;
   tenLop:string;
   hoVaTen:string;
-  ngaySinh:Date;
-  sodienthoai:string;
+  ngaySinh:string;
+  soDienThoai:string;
   diaChi:string;
   email:string;
   gioTinh:string;
@@ -76,4 +77,24 @@ export interface MonHocTruot
   diemKetThuc:number;
   maMonHoc:number,
   tenKhoa:string
+}
+export interface DkHocLai
+{
+
+  maSv:number;
+  hoVaTen:string;
+  tenMonHoc:string;
+  soTinChi:number;
+  diemKetThuc:number;
+  trangThaiHocLai:number;
+  trangThaiNopTien:number;
+}
+
+export interface TraCuuMon
+{
+  maSv:number;
+  hoVaTen:string;
+  tenLop:string;
+  diemKetThuc:number;
+
 }

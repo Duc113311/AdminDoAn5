@@ -1,6 +1,7 @@
 <p-toast></p-toast>
 
 <div class="card">
+  <!-- onlcik thêm -->
     <p-toolbar styleClass="p-mb-4">
         <ng-template pTemplate="left">
             <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
@@ -12,7 +13,7 @@
             <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
         </ng-template>
     </p-toolbar>
-
+<!-- Body hiển thị -->
     <p-table #dt [value]="products" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']"
         [(selection)]="selectedProducts" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
@@ -55,6 +56,8 @@
     </p-table>
 </div>
 
+
+<!-- Model -->
 <p-dialog [(visible)]="productDialog" [baseZIndex]="1000" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <div class="p-field">

@@ -33,6 +33,7 @@ import { DropdownModule } from 'primeng/dropdown';
     MultiSelectModule,
     CalendarModule,
     DropdownModule
+
   ],
   exports:[
 
@@ -50,8 +51,7 @@ import { DropdownModule } from 'primeng/dropdown';
     MultiSelectModule,
     CalendarModule,
     DropdownModule
+  ],
 
-
-  ]
 })
 export class SharedModule { }

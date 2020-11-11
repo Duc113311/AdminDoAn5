@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Diem, Khoa, MonHocTruot } from '../models/khoa';
+import { Diem, DkHocLai, Khoa, MonHocTruot, TraCuuMon } from '../models/khoa';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class QldsvService {
   readonly APIURL_getsv:"https://localhost:44306/api/Diems/getdiemsv/";
   readonly APIURL_getkhoa:"https://localhost:44306/api/Khoas";
   readonly apimonsvtruot="https://localhost:44306/api/Diems/laymonhoc/";
+  readonly apiTraCuuDiem="https://localhost:44306/api/Diems/Tracuudiem/";
+  readonly ApiDangKyHocLai="https://localhost:44306/api/ĐkHocLai/getdkhoclai/";
+  readonly APITraCuuMon="https://localhost:44306/api/Monhocs/tracumonhoc/";
   constructor(private http:HttpClient) { }
   status: string[] = ['OUTOFSTOCK', 'INSTOCK', 'LOWSTOCK'];
 
@@ -66,9 +69,33 @@ export class QldsvService {
     console.log(url);
     // return this.http.get<MonHocTruot[]>(this.apimonsvtruot+`${tenkhoa}/${tenlop}`);
     return this.http.get<MonHocTruot[]>(url)
-
-
   }
+  gettracuumonhoc(tenkhoa:string,tenlop:string,masv:number,namhoc:number):Observable<Diem[]>
+  {
+    debugger;
+    const url=`${this.apiTraCuuDiem}${tenkhoa}/${tenlop}/${masv}/${namhoc}`;
+    console.log(url);
+    // return this.http.get<MonHocTruot[]>(this.apimonsvtruot+`${tenkhoa}/${tenlop}`);
+    return this.http.get<Diem[]>(url)
+  }
+  getDangKyHocLai(tenkhoa:string,tenlop:string,masv:number):Observable<DkHocLai[]>
+  {
+    debugger;
+    const url=`${this.ApiDangKyHocLai}${tenkhoa}/${tenlop}/${masv}`;
+    console.log(url);
+    // return this.http.get<MonHocTruot[]>(this.apimonsvtruot+`${tenkhoa}/${tenlop}`);
+    return this.http.get<DkHocLai[]>(url)
+  }
+  getTraCuuMonHoc(tenkhoa:string,tenmon:string,numhoc:number):Observable<TraCuuMon[]>
+  {
+    debugger;
+    const url=`${this.APITraCuuMon}${tenkhoa}/${tenmon}/${numhoc}`;
+    console.log(url);
+    // return this.http.get<MonHocTruot[]>(this.apimonsvtruot+`${tenkhoa}/${tenlop}`);
+    return this.http.get<TraCuuMon[]>(url)
+  }
+
+
 
   // getAllKhoa():Observable<any>
   // {

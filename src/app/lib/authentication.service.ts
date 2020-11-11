@@ -27,6 +27,7 @@ export class AuthenticationService {
         return this.http.post<any>(this.url, { TenDangNhap:username, MatKhau:password })
             .pipe(map(user => {
                 debugger;
+                user.authdata=window.btoa(username+':'+password);
                 localStorage.setItem('taikhoan', JSON.stringify(user));
                 this.userSubject.next(user);
                 return user;
